@@ -7,8 +7,6 @@
 #include <vector>>
 using namespace std; 
 
-void shuffle(vector<int>& v); 
-
-void swap(vector<int>& v, int x, int y);
+int multiplex (const vector<int>& v, int n); 
 
 #endif

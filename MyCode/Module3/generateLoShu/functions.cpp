@@ -2,39 +2,31 @@
 #include "functions.h"
 using namespace std;
 
-void generateMagicSquare(int grid[][3])
-  {
-   bool yes = false; 
-   while (yes != true) 
-    {
-      vector<vector<int>> v; 
+void swap(vector<int>& v, int x, int y)
+{
+   int temp = v[x];
+   v[x] = v[y];
+   v[y] = temp;
+}
+
+void shuffle(vector<int>& v)
+{
+  // move to main....
+  //srand(time(NULL));
+
+   int i1(0);
+   int i2(0);
+   for (unsigned int i(0); i < 10; i++)
+   {
+      do
       {
-          {1, 2, 3},
-          {4, 5, 6},
-          {7, 8, 9}
-      };
-    int row = 3; 
-    int col = 3; 
-    for (unsigned i = 0; i < row; i++) 
-      {
-        for (unsigned j = 0; j < col; i++) 
-          {
-            grid[i][j] = v[i][j];
-          }
-        
-        yes = isMagicSquare(grid);
-
-        if (yes == true) 
-          {
-            cout <<"Lo Shu"<< endl; 
-          } 
-        else if (yes == false) 
-          {
-            random_shuffle(v.begin(), v.end());
-          }
-      }   
-
-
+         i1 = rand() % v.size();     
+         i2 = rand() % v.size();     
+      } while (i1 == i2);
+      
+      swap(v, i1, i2);
+   } 
+}
   bool isMagicSquare(int grid[][3])
   {   
    bool yes = true;
@@ -79,6 +71,25 @@ void generateMagicSquare(int grid[][3])
    return yes;
   }
 
-}
-  
- 
+void generateMagicSquare(int grid[][3])
+  {
+    vector<int> v; 
+    for (unsigned i = 1; i < 10; i++) 
+      {
+        v.push_back(i); 
+      do 
+        {
+          shuffle(v); 
+          grid [0] [0] = v[0]; 
+          grid [0] [1] = v[1]; 
+          grid [0] [2] = v[2]; 
+          grid [1] [0] = v[3]; 
+          grid [1] [1] = v[4]; 
+          grid [1] [2] = v[5]; 
+          grid [2] [0] = v[6]; 
+          grid [2] [1] = v[7]; 
+          grid [2] [2] = v[8]; 
+        } while (!isMagicSquare(grid)); 
+      }
+        
+  }  

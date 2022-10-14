@@ -12,4 +12,8 @@ void generateMagicSquare(int grid[][3]);
 
 bool isMagicSquare(int grid[][3]); 
 
+void swap(vector<int>& v, int x, int y);
+
+void shuffle(vector<int>& v);
+
 #endif
