@@ -1,5 +1,6 @@
 PROGRAM = POPULATION
-FILES = main.cpp functions.cpp FileReader.cpp helper.cpp Function.cpp 
+FILES = functions.cpp main.cpp 
+
 
 all: run
 run: zip

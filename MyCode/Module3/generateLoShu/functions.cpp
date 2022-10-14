@@ -1,52 +1,42 @@
 #include <iostream>
 #include "functions.h"
-#include "FileReader.h"
-#include "helper.h"
 using namespace std;
 
-void readFile(const string& filename, int grid[][3])
-{    
-   try
-   {
-      int row(0);      
-      FileReader in(filename);
-       
-      // while there is a row in the file....
-      while (in.next())
-    	{
-            // read an entire row of text from the file
-            // each row contains three values separated by a comma...
-    		string line = in.readString(); 
-
-            // breaks the three values up and places
-            // each value in the tokens array...
-    		string tokens[3];
-    		splitA(line, ',', tokens, 3);
-
-            // converts each item to an integer
-            // and places it into the grid array
-            // it does this for each of the three
-            // items that were placed in tokens...
-    		grid[row][0] = stoi(tokens[0]);
-    		grid[row][1] = stoi(tokens[1]);
-    		grid[row][2] = stoi(tokens[2]);
-
-            // increment row so that we can do the same thing
-            // all over again for the next row...
-
-    		row++;
-        }
-    	return;
-    }
-    catch (const char * error)
+void generateMagicSquare(int grid[][3])
+  {
+   bool yes = false; 
+   while (yes != true) 
     {
-        cout << error << endl;
-        return;
-    }
-}
+      vector<vector<int>> v; 
+      {
+          {1, 2, 3},
+          {4, 5, 6},
+          {7, 8, 9}
+      };
+    int row = 3; 
+    int col = 3; 
+    for (unsigned i = 0; i < row; i++) 
+      {
+        for (unsigned j = 0; j < col; i++) 
+          {
+            grid[i][j] = v[i][j];
+          }
+        
+        yes = isMagicSquare(grid);
 
-bool isMagicSquare(int grid[][3])
-{   
+        if (yes == true) 
+          {
+            cout <<"Lo Shu"<< endl; 
+          } 
+        else if (yes == false) 
+          {
+            random_shuffle(v.begin(), v.end());
+          }
+      }   
+
+
+  bool isMagicSquare(int grid[][3])
+  {   
    bool yes = true;
 
    // test the first row to see if the values in each column
@@ -87,4 +77,8 @@ bool isMagicSquare(int grid[][3])
    yes = yes && (grid[0][2] + grid[1][1] + grid[2][0] == 15);  
    
    return yes;
+  }
+
 }
+  
+ 

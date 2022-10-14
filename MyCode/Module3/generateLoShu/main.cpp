@@ -1,14 +1,11 @@
 #include <iostream>
 #include "functions.h"
-#include "Function.h"
-#include "FileReader.h"
-#include "helper.h"
 using namespace std;
 
 int main() 
 {   
   int grid[3][3] = { {0,0,0},{0,0,0},{0,0,0} };  
-  readFile("test.txt", grid);
+  generateMagicSquare(grid); 
   bool yes = isMagicSquare(grid); 
   if (yes == true) 
     {
