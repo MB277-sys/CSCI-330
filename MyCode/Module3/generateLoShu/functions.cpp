@@ -74,22 +74,48 @@ void shuffle(vector<int>& v)
 void generateMagicSquare(int grid[][3])
   {
     vector<int> v; 
-    for (unsigned i = 1; i < 10; i++) 
-      {
-        v.push_back(i); 
-      do 
-        {
-          shuffle(v); 
-          grid [0] [0] = v[0]; 
-          grid [0] [1] = v[1]; 
-          grid [0] [2] = v[2]; 
-          grid [1] [0] = v[3]; 
-          grid [1] [1] = v[4]; 
-          grid [1] [2] = v[5]; 
-          grid [2] [0] = v[6]; 
-          grid [2] [1] = v[7]; 
-          grid [2] [2] = v[8]; 
-        } while (!isMagicSquare(grid)); 
-      }
+    for (unsigned int i(1); i < 10; i++)
+      v.push_back(i);
+   
+   do
+   {
+      shuffle(v);
+
+      grid[0][0] = v[0];
+      grid[0][1] = v[1];
+      grid[0][2] = v[2];
+
+      grid[1][0] = v[3];
+      grid[1][1] = v[4];
+      grid[1][2] = v[5];
+
+      grid[2][0] = v[6];
+      grid[2][1] = v[7];
+      grid[2][2] = v[8];
+
+   } while (!isMagicSquare(grid));
+
+
+
+
+
+    
+    // for (unsigned i = 1; i < 10; i++) 
+      // {
+        // v.push_back(i); 
+      // do 
+        // {
+          // shuffle(v); 
+          // grid [0] [0] = v[0]; 
+          // grid [0] [1] = v[1]; 
+          // grid [0] [2] = v[2]; 
+          // grid [1] [0] = v[3]; 
+          // grid [1] [1] = v[4]; 
+          // grid [1] [2] = v[5]; 
+          // grid [2] [0] = v[6]; 
+          // grid [2] [1] = v[7]; 
+          // grid [2] [2] = v[8]; 
+        // } while (!isMagicSquare(grid)); 
+      // }
         
   }  
