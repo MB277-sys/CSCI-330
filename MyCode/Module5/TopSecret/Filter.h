@@ -7,18 +7,15 @@
 using namespace std; 
 
 class Filter {
-
-   private:
-      string m_grade;
-      int m_score;
-     // int itemQu;
-
-
+   
    public:
-      Filter();  
-      Filter (const string& filename); 
-      void minGrade(string grade);
-      void minScore(int minScore);  
+      Filter();   
+	    Filter(const string& filename); 
+
+	    virtual ~Filter();   
+      void minScore(int score);
+      void minGrade(string grade); 
+      friend ostream & operator<<(ostream & os, const Filter & x);
 };
 
-#endif
+#endif#endif
