@@ -25,7 +25,7 @@ int main()
 
   cout << oname[0] << endl;
   cout << oname[1]<< endl;
-  cout << oname[2]<< endl;
-  cout << oname[3]<< endl;
+  // cout << oname[2]<< endl;
+  // cout << oname[3]<< endl;
 
 }

@@ -1,6 +1,5 @@
-PROGRAM = POPULATION
-FILES = Filter.cpp main.cpp FileReader.cpp
-
+PROGRAM =  FILTER
+FILES = FileReader.cpp helper.cpp Filter.cpp 
 
 all: run
 run: zip

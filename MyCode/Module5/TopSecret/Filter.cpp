@@ -1,52 +1,60 @@
 #include <iostream>
 #include "Filter.h"
 #include "FileReader.h"
+#include "helper.h"
 using namespace std;
 
-// default ctor
-Filter::Filter() :
-	// m_month(1), m_day(1), m_year(2000)
-{
-
-}
-
-// copy ctor
-Filter::Filter(const string& filename) :
-
-    string oname[48]; 
+Filter::Filter(const string& filename) 
+  {
+    string m_grade; 
+    int m_score; 
+    string oname[48];
+    int r=0;      
     FileReader in(filename);
     while (in.next())
     	{
-            // read an entire row of text from the file
-            // each row contains three values separated by a comma...
-        string line = in.readString(); 
-
-            // breaks the three values up and places
-            // each value in the tokens array...
+    		string line = in.readString(); 
     		string tokens[48];
     		splitA(line, ',', tokens, 48);
-
-        if(in.next()) 
+        for(int i=0; i<48; i++) 
         {
-          for (int i=0; i<48; i++)
-            {
-              token[i] = oname[i];
-            }
+          tokens[i]=oname[i];
         }
-        
+    		r++;
       }
-{
+    cout<<oname[0]<<endl; 
+  }
+
+// Filter::~Filter()
+// {
+// }
+
+void Filter::minGrade(string grade) 
+  {
+    m_grade = grade;
+   return;
+}
+
+void Filter::filter() 
+  {
+    if(m_score=800)
+    {
+      
+    } else if(m_score=820)
+    return; 
+  }
   
-}
 
-void Filter::minGrade(string grade)
+void Filter::minScore(int score) 
 {
-   //m_itemQuantity = quantity;
+    m_score = score;
    return;
 }
 
-void Filter::minScore(int score)
+ostream & operator<<(ostream & os, const Filter & x)
 {
-   //m_itemQuantity = quantity;
-   return;
+
+ // os << x.Filter(x);
+	return os;
+  
 }
